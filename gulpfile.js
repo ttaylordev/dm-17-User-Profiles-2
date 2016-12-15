@@ -1,5 +1,4 @@
-
-const autoprefixer = require('gulp-autoprefixer')
+const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
 const browserSync = require('browser-sync')
   .create('BrowserSync Server');
@@ -46,7 +45,7 @@ gulp.task('html', function(){
   gutil.log('html process is running');
   gulp.src('./dev/**/*.html')
     .pipe(gulp.dest('./dist/html/'))
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream())
 });
 
 // process styles files and return one css file.
@@ -64,7 +63,7 @@ gulp.task('styles', function(){
     .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(concat('/bundle.css'))
     .pipe(gulp.dest('./dist'))
-  .pipe(browserSync.stream());
+    .pipe(browserSync.stream())
 });
 
 // process JS files and return the stream.
@@ -141,6 +140,7 @@ gulp.task('serveLocal', function(){
 //###############################\\
 //##--- Gulp Default Process --##\\
 //###############################\\
+
 
 gulp.task('default',['serveLocal']);
 
